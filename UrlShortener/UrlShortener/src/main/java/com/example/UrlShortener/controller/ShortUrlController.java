@@ -55,15 +55,15 @@ public class ShortUrlController {
 	@GetMapping("/{code}")
 	public ResponseEntity<ShortUrlDto> redirect(@Valid @NotEmpty @PathVariable String code) throws URISyntaxException{
 		
+
 		ShortUrl shortUrl = service.getUrlByCode(code);
-		
-		URI url = new URI(shortUrl.getUrl());
+		    
+		URI url = new URI("http://" + shortUrl.getUrl()); 
+		    
 		HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setLocation(url);
-		
-		return new ResponseEntity<>(
-				httpHeaders,HttpStatus.SEE_OTHER
-		);
+		    
+		return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
 	}
 	
 	@PostMapping("/add")

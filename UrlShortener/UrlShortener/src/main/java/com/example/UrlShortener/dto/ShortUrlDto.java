@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data 
-@Entity
 public class ShortUrlDto {
 	private long id;
 	private String url;

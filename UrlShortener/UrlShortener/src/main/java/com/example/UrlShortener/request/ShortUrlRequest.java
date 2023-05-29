@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data 
-@Entity
 public class ShortUrlRequest {
 		private String url;
 		private String code;

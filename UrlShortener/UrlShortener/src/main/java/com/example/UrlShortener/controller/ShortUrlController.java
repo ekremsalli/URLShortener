@@ -57,8 +57,16 @@ public class ShortUrlController {
 		
 
 		ShortUrl shortUrl = service.getUrlByCode(code);
-		    
-		URI url = new URI("http://" + shortUrl.getUrl()); 
+		
+		String head = "http://";
+		
+		String urlString  = shortUrl.getUrl();
+		
+		if(!shortUrl.getUrl().startsWith(head)) {
+			urlString = head + urlString;
+		}
+		
+		URI url = new URI(urlString); 
 		    
 		HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setLocation(url);
